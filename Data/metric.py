@@ -1,8 +1,8 @@
 import sqlite3
 
-database = 'Database/metric.db'
+database = 'Database/metrics.db'
 create_table = """
-    CREATE TABLE IF NOT EXISTS metric (
+    CREATE TABLE IF NOT EXISTS metrics (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         timestamp REAL NOT NULL,
         cpu_percent REAL NOT NULL,

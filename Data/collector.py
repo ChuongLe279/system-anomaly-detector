@@ -18,11 +18,10 @@ def collect_row():
     )
 
 
-def add_data(N, interval=5):
-    sql = '''
-        INSERT INTO train
-            (timestamp, cpu_percent, mem_percent,
-             bytes_sent, bytes_recv, disk_read, disk_write, process_count)
+def add_data(table, N, interval=5):
+    sql = f'''
+        INSERT INTO {table}
+            (timestamp, cpu_percent, mem_percent, bytes_sent, bytes_recv, disk_read, disk_write, process_count)
         VALUES (?,?,?,?,?,?,?,?)
     '''
     try:
@@ -50,7 +49,7 @@ def add_data(N, interval=5):
 
 
 def main():
-    last_id = add_data(N=10, interval=5)
+    last_id = add_data(table="train", N=10, interval=5)
     print(f'Done! Last row id = {last_id}')
 
 
